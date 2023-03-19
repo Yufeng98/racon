@@ -178,7 +178,7 @@ Polisher::Polisher(std::unique_ptr<bioparser::Parser<Sequence>> sparser,
 
     for (uint32_t i = 0; i < num_threads; ++i) {
         alignment_engines_.emplace_back(spoa::AlignmentEngine::Create(
-            spoa::AlignmentType::kNW, match, mismatch, gap));
+            spoa::AlignmentType::kNW, match, mismatch, gap, gap + 1));
         alignment_engines_.back()->Prealloc(window_length_, 5);
     }
 }
